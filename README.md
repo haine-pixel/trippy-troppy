@@ -1,5 +1,7 @@
 # Database Schema
 
+<img width="2476" height="1484" alt="image" src="https://github.com/user-attachments/assets/f315aa40-49c8-4180-bec8-386543a19f93" />
+
 ## profiles
 
 | Name  |  Type | Description |
