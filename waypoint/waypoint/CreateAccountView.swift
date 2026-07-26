@@ -35,12 +35,12 @@ struct CustomTextField: View {
     }
 }
 
-struct ContentView: View {
+struct CreateAccountView: View {
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
     @State private var password = ""
-
+    @Environment(\.dismiss) private var dismiss
     private let textColor = Color(red: 75/255, green: 91/255, blue: 99/255)
 
     var body: some View {
@@ -78,7 +78,7 @@ struct ContentView: View {
 
             HStack {
                 VStack { Divider() }
-                Text("Or").foregroundColor(.gray)
+                Text("Or").foregroundColor(.gray).font(.system(size: 12))
                 VStack { Divider() }
             }
 
@@ -106,9 +106,11 @@ struct ContentView: View {
             HStack(spacing: 4) {
                 Text("Already have an account?")
                     .foregroundColor(.gray)
-                Text("Login")
-                    .bold()
-                    .foregroundColor(textColor)
+                Button(action: { dismiss()}) {
+                    Text("Login")
+                        .bold()
+                        .foregroundColor(textColor)
+                }
             }
             .font(.system(size: 14))
             .padding(.bottom, 20)
@@ -118,5 +120,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    CreateAccountView()
 }
