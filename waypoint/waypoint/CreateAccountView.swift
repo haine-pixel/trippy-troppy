@@ -65,6 +65,23 @@ struct CreateAccountView: View {
             Spacer()
 
             Button(action: {
+                Task{
+                    let success = await createProfile(
+                        id: UUID(),
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        avatar_url: "",
+                        password: password)
+                    
+                    if success{
+                        print("Account created successfully")
+                        dismiss()
+                    } else {
+                        print("Error creating account")
+                    }
+                }
+                
                 // handle registration
             }) {
                 Text("Register")
@@ -122,7 +139,3 @@ struct CreateAccountView: View {
 #Preview {
     CreateAccountView()
 }
-
-// -- backend
-
-

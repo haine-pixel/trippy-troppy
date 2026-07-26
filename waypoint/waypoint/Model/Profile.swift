@@ -16,7 +16,6 @@ struct Profile: Codable, Identifiable {
     let first_name: String
     let last_name: String
     let email: String
-    let phone: String
     let avatar_url: String
     let password: String
     let created_at: Date
@@ -61,8 +60,8 @@ func getProfiles() async -> [Profile]? {
 }
 
 // -- POST a profile
-func createProfile(id: UUID, first_name: String, last_name: String, email: String, phone: String, avatar_url: String, password: String) async -> Bool {
-    let profile = Profile(id: id, first_name: first_name, last_name: last_name, email: email, phone: phone, avatar_url: avatar_url, password: password, created_at: Date(), updated_at: Date())
+func createProfile(id: UUID, first_name: String, last_name: String, email: String, avatar_url: String, password: String) async -> Bool {
+    let profile = Profile(id: id, first_name: first_name, last_name: last_name, email: email, avatar_url: avatar_url, password: password, created_at: Date(), updated_at: Date())
     
     do {
         try await supabase
@@ -78,9 +77,9 @@ func createProfile(id: UUID, first_name: String, last_name: String, email: Strin
     }
 }
 
-// -- PUT a profile, let user update phone number and email only
-func updateProfile(id: UUID, phone_number: String? = nil, email: String? = nil) async -> Bool {
-    // initialise an empty dict -< [:], [String: String] means it could be Phone_number -> Value
+/*
+ func updateProfile(id: UUID, phone_number: String? = nil, email: String? = nil) async -> Bool {
+    // initialise an empty dict -> [:], [String: String] means it could be Phone_number -> Value
     var updates: [String: String] = [:]
     
     if let phone_number = phone_number {
@@ -111,7 +110,7 @@ func updateProfile(id: UUID, phone_number: String? = nil, email: String? = nil) 
     }
 }
 
-/*
+
 func updatePhone(id: UUID, phone_number: String) async -> Bool {
     do {
         try await supabase
@@ -127,7 +126,9 @@ func updatePhone(id: UUID, phone_number: String) async -> Bool {
         return false
     }
 }
+ */
 
+// -- PUT user's email
 func updateEmail(id: UUID, email: String) async -> Bool {
     do {
         try await supabase
@@ -143,7 +144,7 @@ func updateEmail(id: UUID, email: String) async -> Bool {
         return false
     }
 }
- */
+ 
 
 // -- DELETE a profile
 func deleteProfile(id: UUID) async -> Bool {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CED93CF93006FD1500342DE6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = CED93CF83006FD1500342DE6 /* Supabase */; };
+		CED93D4230146DA400342DE6 /* JWTKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED93D4130146DA400342DE6 /* JWTKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED93CF93006FD1500342DE6 /* Supabase in Frameworks */,
+				CED93D4230146DA400342DE6 /* JWTKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 			name = waypoint;
 			packageProductDependencies = (
 				CED93CF83006FD1500342DE6 /* Supabase */,
+				CED93D4130146DA400342DE6 /* JWTKit */,
 			);
 			productName = waypoint;
 			productReference = F1F6576D30053891000A8F5F /* waypoint.app */;
@@ -110,6 +113,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				CED93CF63005453000342DE6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				CED93D4030146DA400342DE6 /* XCRemoteSwiftPackageReference "jwt-kit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F1F6576E30053891000A8F5F /* Products */;
@@ -355,6 +359,14 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		CED93D4030146DA400342DE6 /* XCRemoteSwiftPackageReference "jwt-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/jwt-kit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -362,6 +374,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CED93CF63005453000342DE6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		CED93D4130146DA400342DE6 /* JWTKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CED93D4030146DA400342DE6 /* XCRemoteSwiftPackageReference "jwt-kit" */;
+			productName = JWTKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
